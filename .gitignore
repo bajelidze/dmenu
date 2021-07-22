@@ -1,0 +1,7 @@
+/dmenu
+/dmenu_run
+*.def.h
+*.orig
+*.rej
+*.o
+*.diff
