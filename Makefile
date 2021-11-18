@@ -41,24 +41,17 @@ dist: clean
 	rm -rf dmenu-$(VERSION)
 
 install: all
-	mkdir -p $(DESTDIR)$(PREFIX)/bin
-	cp -f dmenu dmenu_path dmenu_run stest $(DESTDIR)$(PREFIX)/bin
-	chmod 755 $(DESTDIR)$(PREFIX)/bin/dmenu
-	chmod 755 $(DESTDIR)$(PREFIX)/bin/dmenu_path
-	chmod 755 $(DESTDIR)$(PREFIX)/bin/dmenu_run
-	chmod 755 $(DESTDIR)$(PREFIX)/bin/stest
-	mkdir -p $(DESTDIR)$(MANPREFIX)/man1
-	sed "s/VERSION/$(VERSION)/g" < dmenu.1 > $(DESTDIR)$(MANPREFIX)/man1/dmenu.1
-	sed "s/VERSION/$(VERSION)/g" < stest.1 > $(DESTDIR)$(MANPREFIX)/man1/stest.1
-	chmod 644 $(DESTDIR)$(MANPREFIX)/man1/dmenu.1
-	chmod 644 $(DESTDIR)$(MANPREFIX)/man1/stest.1
+	mkdir -p $(PREFIX)/bin
+	cp -f dmenu dmenu_path dmenu_run stest $(PREFIX)/bin
+	chmod 755 $(PREFIX)/bin/dmenu
+	chmod 755 $(PREFIX)/bin/dmenu_path
+	chmod 755 $(PREFIX)/bin/dmenu_run
+	chmod 755 $(PREFIX)/bin/stest
 
 uninstall:
-	rm -f $(DESTDIR)$(PREFIX)/bin/dmenu\
-		$(DESTDIR)$(PREFIX)/bin/dmenu_path\
-		$(DESTDIR)$(PREFIX)/bin/dmenu_run\
-		$(DESTDIR)$(PREFIX)/bin/stest\
-		$(DESTDIR)$(MANPREFIX)/man1/dmenu.1\
-		$(DESTDIR)$(MANPREFIX)/man1/stest.1
+	rm -f $(PREFIX)/bin/dmenu\
+		$(PREFIX)/bin/dmenu_path\
+		$(PREFIX)/bin/dmenu_run\
+		$(PREFIX)/bin/stest\
 
 .PHONY: all options clean dist install uninstall
